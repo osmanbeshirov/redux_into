@@ -1,9 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actionTypes from '../redux/actions/actionTypes'
 
-export default class DecreaseCounter extends Component {
-  render() {
-    return (
-      <div>DecreaseCounter</div>
-    )
-  }
+const DecreaseCounter = () => {
+
+  const counters = useSelector(state => state);
+  const dispatch = useDispatch();
+
+
+
+  return (
+    <div>
+      <button onClick={() => dispatch({type: actionTypes.DECREASE_COUNTER, payload: 1 })}>Decrease Counter</button>
+    </div>
+  )
+
 }
+
+export default DecreaseCounter;

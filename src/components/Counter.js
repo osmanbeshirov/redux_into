@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import counterReducer from '../redux/reducers/counterReducer';
-import counter from '../redux/reducers/index';
+import React from 'react';
+import {useSelector} from 'react-redux';
 
-import {connect} from 'react-redux'
+const Counter = () => {
 
-class Counter extends Component {
-  render() {
-    return (
-      <div>
-        <h1>{this.props.counter}</h1>
-      </div>
-    )
-  }
+  const counters = useSelector(state => state.counter);
+
+
+  return (
+    <div>
+      <h1>{counters}</h1>
+    </div>
+  )
+
 }
 
-function mapStateToProps(state){
-  return {counter: state.counterReducer}
-}
+export default Counter;
 
-export default connect(mapStateToProps)(Counter)
+

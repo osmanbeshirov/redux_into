@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import {increaseCounter} from '../redux/actions/counterActions';
-import {connect} from 'react-redux'
+import React from 'react'
+import { useDispatch } from 'react-redux';
+import * as actionTypes from '../redux/actions/actionTypes'
 
-class IncreaseCounter extends Component {
-  render() {
-    return (
-      <div>
-        <button onClick={e => {
-          this.props.dispatch(increaseCounter())
-        }}>Increase</button>
-      </div>
-    )
-  }
+
+const IncreaseCounter = () => {
+
+  const dispatch = useDispatch()
+
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: actionTypes.INCREASE_COUNTER, payload: 1 })}>Increase Counter</button>
+    </div>
+  )
+
 }
 
-function mapDispatchToProps(dispatch){
-  return {actions: bindActionCreators(increaseCounter, dispatch)}
-}
 
-export default connect(mapDispatchToProps)(IncreaseCounter);
+
+export default IncreaseCounter;
