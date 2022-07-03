@@ -1,17 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import * as actionTypes from '../redux/actions/actionTypes'
+import { useDispatch } from 'react-redux';
+import { decreaseCounter } from '../redux/actions/counterActions';
 
 const DecreaseCounter = () => {
 
-  const counters = useSelector(state => state);
   const dispatch = useDispatch();
 
 
 
   return (
     <div>
-      <button onClick={() => dispatch({type: actionTypes.DECREASE_COUNTER, payload: 1 })}>Decrease Counter</button>
+      <button onClick={() => dispatch(decreaseCounter())}>Decrease Counter</button>
     </div>
   )
 

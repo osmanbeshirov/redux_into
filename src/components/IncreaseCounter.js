@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import * as actionTypes from '../redux/actions/actionTypes'
+import { increaseCounter } from '../redux/actions/counterActions';
 
 
 const IncreaseCounter = () => {
@@ -9,7 +9,7 @@ const IncreaseCounter = () => {
 
   return (
     <div>
-      <button onClick={() => dispatch({ type: actionTypes.INCREASE_COUNTER, payload: 1 })}>Increase Counter</button>
+      <button onClick={() => dispatch(increaseCounter())}>Increase Counter</button>
     </div>
   )
 
